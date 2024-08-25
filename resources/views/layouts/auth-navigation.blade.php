@@ -5,7 +5,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
+                    <a href="/">
                         <img width="100" src="{{Vite::asset('resources/images/barbershop-logo-stroke.svg') }}" alt="logo">
                     </a>
                 </div>
