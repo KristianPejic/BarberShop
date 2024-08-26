@@ -18,18 +18,19 @@
 </head>
 
 <body class="font-poppins text-white">
-    <div class="bg-black">
-        <nav class="flex justify-between items-center font-light lg:text-lg mx-auto max-w-7xl px-6 lg:px-8 py-4">
+    <!-- Navigation -->
+    <nav class="bg-black">
+        <div class="flex justify-between items-center font-light lg:text-lg mx-auto max-w-7xl px-6 lg:px-8 py-4">
             <div class="-mt-1">
                 <a href="/">
                     <img width="150" src="{{Vite::asset('resources/images/barbershop-logo.svg') }}" alt="logo">
                 </a>
             </div>
             <div class="space-x-6 items-center hidden md:block">
-                <a href="/">Početna</a>
-                <a href="#">Rezervacije</a>
-                <a href="#">Shop</a>
-                <a href="#">Blog</a>
+                <a href="/" class="hover:text-orange-500 transition-colors duration-300">Početna</a>
+                <a href="#" class="hover:text-orange-500 transition-colors duration-300">Rezervacije</a>
+                <a href="/shop" class="hover:text-orange-500 transition-colors duration-300">Shop</a>
+                <a href="#" class="hover:text-orange-500 transition-colors duration-300">Blog</a>
             </div>
             @guest
                 <div class="space-x-5 hidden md:block">
@@ -49,7 +50,7 @@
                 </div>
             @endauth
 
-
+            <!-- Menu button for small screens -->
             <div class="md:hidden">
                 <button class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded" type="button"
                     data-twe-offcanvas-toggle data-twe-target="#offcanvasRight" aria-controls="offcanvasRight"
@@ -63,10 +64,10 @@
                     </svg>
                 </button>
             </div>
-        </nav>
-    </div>
+        </div>
+    </nav>
 
-    <!-- Offcanvas right component -->
+    <!-- Offcanvas-right component -->
     <div class="invisible fixed bottom-0 right-0 top-0 z-[1045] flex w-96 max-w-full translate-x-full flex-col border-none bg-white bg-clip-padding text-neutral-700 shadow-sm outline-none transition duration-300 ease-in-out data-[twe-offcanvas-show]:transform-none dark:bg-body-dark dark:text-white"
         tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" data-twe-offcanvas-init>
         <div class="flex items-center justify-between p-6">
@@ -84,10 +85,12 @@
                 </span>
             </button>
         </div>
+
+        <!-- Offcanvas-right menu items -->
         <div class="offcanvas-body flex flex-col overflow-y-auto text-lg mt-5">
             <x-offset-navlink link="/">Početna</x-offset-navlink>
             <x-offset-navlink link="/">Rezervacije</x-offset-navlink>
-            <x-offset-navlink link="/">Shop</x-offset-navlink>
+            <x-offset-navlink link="/shop">Shop</x-offset-navlink>
             <x-offset-navlink link="/">Blog</x-offset-navlink>
         </div>
         @guest
@@ -114,10 +117,12 @@
         @endauth
     </div>
 
+    <!-- Content goes in here -->
     <div>
         {{$slot}}
     </div>
 
+    <!-- Footer -->
     <footer>
         <div class="bg-black">
             <div class="mx-auto max-w-8xl px-6 lg:px-8 flex flex-col py-10 font-light space-y-5">
@@ -127,7 +132,7 @@
                             <img width="200" src="{{Vite::asset('resources/images/barbershop-logo.svg') }}" alt="logo">
                         </a>
                     </div>
-                    <div class="flex lg:pl-10 gap-10 md:col-span-3 text-lg pt-4 md:pt-0">
+                    <div class="flex lg:pl-10 gap-10 md:col-span-3 sm:text-lg pt-4 md:pt-0">
                         <div>
                             <ul class="space-y-1">
                                 <li class="font-bold">Berikiko d.o.o.</li>
@@ -141,28 +146,29 @@
                         <div class="flex flex-col mx-auto space-y-1">
                             <a href="/" class="hover:text-orange-500 transition-colors duration-300">Početna</a>
                             <a href="#" class="hover:text-orange-500 transition-colors duration-300">Rezervacije</a>
-                            <a href="#" class="hover:text-orange-500 transition-colors duration-300">Shop</a>
+                            <a href="/shop" class="hover:text-orange-500 transition-colors duration-300">Shop</a>
                             <a href="#" class="hover:text-orange-500 transition-colors duration-300">Blog</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="text-center space-y-1 text-sm px-12">
+                <div class="text-center space-y-1 text-sm px-5 md:px-12">
                     <h6 class="font-extrabold hover:text-orange-500 transition-colors duration-300">©2024 <a
                             href="/">Berik's Barbershop</a></h6>
-                    <p class="font-light">
+                    <section class="font-light">
                         <a href="#">Pravila o zaštiti privatnosti</a>
                         <span> | </span>
                         <a href="#">Politika o kolačićima</a>
                         <span> | </span>
                         <a href="#">Uvjeti korištenja</a>
 
-                    </p>
+                    </section>
                 </div>
             </div>
         </div>
     </footer>
 
+    <!-- TW Elements (used for offcanvas-right) -->
     <script type="text/javascript" src="../node_modules/tw-elements/dist/js/tw-elements.umd.min.js">
     </script>
 </body>

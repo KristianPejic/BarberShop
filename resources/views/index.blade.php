@@ -11,9 +11,11 @@
             <x-product-card />
         </div>
 
-        <button
-            class="bg-orange-500 text-white text-lg px-10 py-3 rounded-xl mt-10 hover:bg-black hover:text-white transition-all duration-500">
-            Pogledaj više
-        </button>
+        <a href="/shop">
+            <button
+                class="bg-orange-500 text-white text-lg px-10 py-3 rounded-xl mt-10 hover:bg-black hover:text-white transition-all duration-500">
+                Pogledaj više
+            </button>
+        </a>
     </div>
 </x-layout>
