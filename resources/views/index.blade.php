@@ -5,10 +5,9 @@
         <h1 class="text-6xl font-black text-black">Shop</h1>
 
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-10 mt-10">
-            <x-product-card />
-            <x-product-card />
-            <x-product-card />
-            <x-product-card />
+            @foreach ($products as $product)
+                <x-product-card :$product />
+            @endforeach
         </div>
 
         <a href="/shop">

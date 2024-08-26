@@ -26,24 +26,20 @@
             </form>
         </div>
 
-        <h3 class="mt-10">Prikazano <strong>25</strong> od <strong>100</strong> rezultata..</h3>
+        <!-- <h3 class="mt-10">Prikazano <strong>25</strong> od <strong>100</strong> rezultata..</h3> -->
 
         <!-- Card grid -->
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-8 my-5">
-            <x-product-card />
-            <x-product-card />
-            <x-product-card />
-            <x-product-card />
-            <x-product-card />
-            <x-product-card />
-            <x-product-card />
-            <x-product-card />
+        <div class="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-8 my-5">
+            @foreach ($products as $product)
+                <x-product-card :$product />
+            @endforeach
         </div>
 
         <!-- Pagination -->
-        <div class="text-center my-10 text-lg">
-            Pagination goes here...
+        <div class="my-10 text-xl">
+            {{ $products->links() }}
         </div>
+
 
     </div>
 </x-layout>
