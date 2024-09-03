@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="/">
-                        <img width="100" src="{{Vite::asset('resources/images/barbershop-logo-stroke.svg') }}" alt="logo">
+                        <img width="120" src="{{Vite::asset('resources/images/barbershop-logo-stroke.svg') }}" alt="logo">
                     </a>
                 </div>
 
@@ -15,6 +15,11 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    @admin
+                        <x-nav-link :href="route('products')" :active="request()->routeIs('products')">
+                            {{ __('Products') }}
+                        </x-nav-link>
+                    @endadmin
                 </div>
             </div>
 
@@ -70,6 +75,11 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            @admin
+                <x-responsive-nav-link :href="route('products')" :active="request()->routeIs('products')">
+                    {{ __('Products') }}
+                </x-responsive-nav-link>
+            @endadmin
         </div>
 
         <!-- Responsive Settings Options -->

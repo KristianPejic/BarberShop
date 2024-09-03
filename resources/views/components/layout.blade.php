@@ -26,32 +26,34 @@
                     <img width="150" src="{{Vite::asset('resources/images/barbershop-logo.svg') }}" alt="logo">
                 </a>
             </div>
-            <div class="space-x-6 items-center hidden md:block">
+            <div class="space-x-6 items-center hidden lg:block">
                 <a href="/" class="hover:text-orange-500 transition-colors duration-300">Početna</a>
                 <a href="#" class="hover:text-orange-500 transition-colors duration-300">Rezervacije</a>
                 <a href="/shop" class="hover:text-orange-500 transition-colors duration-300">Shop</a>
                 <a href="#" class="hover:text-orange-500 transition-colors duration-300">Blog</a>
             </div>
             @guest
-                <div class="space-x-5 hidden md:block">
+                <div class="space-x-5 hidden lg:block">
                     <a href="/login">Login</a>
                     <a href="/register">Register</a>
                 </div>
             @endguest   
 
             @auth
-                <div class="space-x-6 hidden md:flex">
+                <div class="space-x-6 hidden lg:flex">
                     <a href="/dashboard">Dashboard</a>
-                    <form action="/logout" method="POST">
+                    <form method="POST" action="{{ route('logout') }}">
                         @csrf
-                        @method('DELETE')
-                        <button>Log Out</button>
+
+                        <button onclick="event.preventDefault(); this.closest('form').submit();">
+                            {{ __('Log Out') }}
+                        </button>
                     </form>
                 </div>
             @endauth
 
             <!-- Menu button for small screens -->
-            <div class="md:hidden">
+            <div class="lg:hidden">
                 <button class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded" type="button"
                     data-twe-offcanvas-toggle data-twe-target="#offcanvasRight" aria-controls="offcanvasRight"
                     data-twe-ripple-init data-twe-ripple-color="light">
@@ -167,6 +169,8 @@
             </div>
         </div>
     </footer>
+
+    <x-flash />
 
     <!-- TW Elements (used for offcanvas-right) -->
     <script type="text/javascript" src="../node_modules/tw-elements/dist/js/tw-elements.umd.min.js">
