@@ -28,7 +28,7 @@
             </div>
             <div class="space-x-6 items-center hidden lg:block">
                 <a href="/" class="hover:text-orange-500 transition-colors duration-300">Početna</a>
-                <a href="#" class="hover:text-orange-500 transition-colors duration-300">Rezervacije</a>
+                <a href="reservations" class="hover:text-orange-500 transition-colors duration-300">Rezervacije</a>
                 <a href="/shop" class="hover:text-orange-500 transition-colors duration-300">Shop</a>
                 <a href="#" class="hover:text-orange-500 transition-colors duration-300">Blog</a>
             </div>
@@ -91,7 +91,7 @@
         <!-- Offcanvas-right menu items -->
         <div class="offcanvas-body flex flex-col overflow-y-auto text-lg mt-5">
             <x-offset-navlink link="/">Početna</x-offset-navlink>
-            <x-offset-navlink link="/">Rezervacije</x-offset-navlink>
+            <x-offset-navlink link="/reservation">Rezervacije</x-offset-navlink>
             <x-offset-navlink link="/shop">Shop</x-offset-navlink>
             <x-offset-navlink link="/">Blog</x-offset-navlink>
         </div>
@@ -147,7 +147,7 @@
                         </div>
                         <div class="flex flex-col mx-auto space-y-1">
                             <a href="/" class="hover:text-orange-500 transition-colors duration-300">Početna</a>
-                            <a href="#" class="hover:text-orange-500 transition-colors duration-300">Rezervacije</a>
+                            <a href="reservations" class="hover:text-orange-500 transition-colors duration-300">Rezervacije</a>
                             <a href="/shop" class="hover:text-orange-500 transition-colors duration-300">Shop</a>
                             <a href="#" class="hover:text-orange-500 transition-colors duration-300">Blog</a>
                         </div>

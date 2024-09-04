@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="/">
-                        <img width="120" src="{{Vite::asset('resources/images/barbershop-logo-stroke.svg') }}" alt="logo">
+                        <img width="120" src="{{ Vite::asset('resources/images/barbershop-logo-stroke.svg') }}" alt="logo">
                     </a>
                 </div>
 
@@ -20,6 +20,12 @@
                             {{ __('Products') }}
                         </x-nav-link>
                     @endadmin
+
+                    @auth
+                        <x-nav-link :href="route('user_reservations')" :active="request()->routeIs('user_reservations')">
+                            {{ __('Reservations') }}
+                        </x-nav-link>
+                    @endauth
                 </div>
             </div>
 
@@ -80,6 +86,11 @@
                     {{ __('Products') }}
                 </x-responsive-nav-link>
             @endadmin
+            @auth
+                <x-responsive-nav-link :href="route('user_reservations')" :active="request()->routeIs('user_reservations')">
+                    {{ __('Reservations') }}
+                </x-responsive-nav-link>
+            @endauth
         </div>
 
         <!-- Responsive Settings Options -->

@@ -4,6 +4,7 @@ use App\Http\Controllers\FilterController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReservationController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ProductController::class, 'index']);
@@ -28,6 +29,13 @@ Route::middleware('MustBeAdmin')->group(function () {
     Route::patch('/product/{id}', [ProductController::class, 'update'])->name('product_update');
     Route::delete('/product/{id}', [ProductController::class, 'destroy'])->name('product_destroy');
 
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('/reservations', [ReservationController::class, 'index'])->name('reservations');
+    Route::post('/reservations', [ReservationController::class, 'store'])->name('reservations.store');
+    Route::get('/reservations/user', [ReservationController::class, 'userReservations'])->name('user_reservations');
+    Route::delete('/reservations/user/{id}', [ReservationController::class, 'destroy'])->name('reservations.destroy');
 });
 
 Route::middleware('auth')->group(function () {
