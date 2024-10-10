@@ -6,6 +6,9 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReservationController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
+
 
 Route::get('/', [ProductController::class, 'index']);
 Route::get('/shop/search', [SearchController::class, 'index']);
@@ -13,6 +16,23 @@ Route::get('/shop/filter', [FilterController::class, 'index']);
 
 Route::get('/shop', [ProductController::class, 'shop']);
 Route::get('/products/{id}', [ProductController::class, 'show'])->name('show_product');
+
+
+// Cart routes
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::post('/cart/{id}', [CartController::class, 'addToCart'])->name('cart.add');
+Route::delete('/cart/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
+
+// User's Orders Route (Authenticated Users)
+Route::middleware('auth')->group(function () {
+    Route::get('/orders', [OrderController::class, 'userOrders'])->name('user_orders');
+});
+
+Route::middleware(['auth', 'MustBeAdmin'])->group(function () {
+    Route::get('/all-orders', [OrderController::class, 'adminAllOrders'])->name('all_orders');
+});
+Route::post('/place-order', [OrderController::class, 'placeOrder'])->name('place_order');
+Route::patch('/order/{id}/status', [OrderController::class, 'updateStatus'])->name('order.updateStatus');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

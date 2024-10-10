@@ -15,15 +15,22 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+
                     @admin
-                        <x-nav-link :href="route('products')" :active="request()->routeIs('products')">
-                            {{ __('Products') }}
+                        <!-- Admin All Orders Link -->
+                        <x-nav-link :href="route('all_orders')" :active="request()->routeIs('all_orders')">
+                            {{ __('All Orders') }}
                         </x-nav-link>
                     @endadmin
 
                     @auth
+                        <!-- User Reservations Link -->
                         <x-nav-link :href="route('user_reservations')" :active="request()->routeIs('user_reservations')">
                             {{ __('Reservations') }}
+                        </x-nav-link>
+                        <!-- User Orders Link -->
+                        <x-nav-link :href="route('user_orders')" :active="request()->routeIs('user_orders')">
+                            {{ __('Orders') }}
                         </x-nav-link>
                     @endauth
                 </div>

@@ -17,6 +17,13 @@
 </head>
 
 <body class="font-poppins antialiased">
+    @if (session('success'))
+    <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 1500)" 
+         class="fixed bottom-4 left-4 bg-orange-500 text-white py-2 px-4 rounded shadow-lg">
+        {{ session('success') }}
+    </div>
+    @endif
+
     <div class="min-h-screen bg-gray-100">
         @include('layouts.auth-navigation')
 

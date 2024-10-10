@@ -21,6 +21,12 @@ class DatabaseSeeder extends Seeder
             'password' => 'admin',
             'admin' => true,
         ]);
+        User::factory()->create([
+            'name' => 'kiko',
+            'email' => 'kiko@ericsson.ba',
+            'password' => 'user',
+            'admin' => false,
+        ]);
 
         $this->call(CategorySeeder::class);
         $this->call(ProductSeeder::class);

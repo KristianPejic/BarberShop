@@ -21,7 +21,8 @@ return new class extends Migration {
             $table->string('price');
             $table->string('discount_price')->nullable();
             $table->boolean('availability')->default(true);
-
+            $table->unsignedBigInteger('user_id')->nullable(); // Assuming user_id will store the ID of the user who ordered the product
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
         });
     }
@@ -33,4 +34,5 @@ return new class extends Migration {
     {
         Schema::dropIfExists('products');
     }
+    
 };
