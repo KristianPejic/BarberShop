@@ -8,6 +8,8 @@ use App\Http\Controllers\ReservationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\BlogController;
 
 
 Route::get('/', [ProductController::class, 'index']);
@@ -37,6 +39,12 @@ Route::patch('/order/{id}/status', [OrderController::class, 'updateStatus'])->na
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+// Posts 
+Route::resource('posts', PostController::class);
+Route::post('posts/{post}/like', [PostController::class, 'like'])->name('posts.like');
+Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
+Route::get('/blog/{id}', [BlogController::class, 'show'])->name('blog.show');
 
 Route::middleware('MustBeAdmin')->group(function () {
     Route::get('/products', [ProductController::class, 'admin'])->name('products');

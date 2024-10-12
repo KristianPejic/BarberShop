@@ -16,9 +16,7 @@
                 <input type="hidden" name="barber" :value="selectedBarber">
                 <input type="hidden" name="date" :value="selectedDate">
                 <input type="hidden" name="time" :value="selectedTime">
-            <!DOCTYPE html>
             
-            </head>
             <div x-data="{
                 step: 1,
                 selectedService: 'fade',
@@ -114,6 +112,7 @@
                             </label>
                         </div>
                         <div class="mt-6 flex justify-between">
+                            <!-- "Dalje" button -->
                             <button type="button" @click="step = 2" class="w-full bg-orange-600 text-white py-2 rounded-md hover:bg-orange-500 text-sm md:text-base lg:text-lg">Dalje</button>
                         </div>
                     </form>
@@ -123,7 +122,7 @@
                 <div x-show="step === 2" class="p-4 md:p-6 lg:p-8 transition-all duration-500">
                     <h2 class="text-lg md:text-xl lg:text-2xl font-bold text-black">Odaberite svog barbera</h2>
                     <div class="mt-4 space-y-4">
-                        <!-- Barber Option 1 -->
+                        <!-- Barber Options and buttons -->
                         <div class="flex items-center justify-between">
                             <div class="flex items-center">
                                 <img src={{Vite::asset('resources/images/Barber.jpg')}} alt="Barber 1" class="h-10 w-10 rounded-full">
@@ -138,57 +137,41 @@
                                 </svg>
                             </button>
                         </div>
-                        <!-- Barber Option 2 -->
                         <div class="flex items-center justify-between">
                             <div class="flex items-center">
-                                <img src={{Vite::asset('resources/images/Barber.jpg')}} alt="Barber 2" class="h-10 w-10 rounded-full">
+                                <img src={{Vite::asset('resources/images/Barber.jpg')}} alt="Barber 1" class="h-10 w-10 rounded-full">
                                 <div class="ml-3">
-                                    <p class="text-gray-900 text-sm md:text-base lg:text-lg font-semibold">Ana Anić</p>
-                                    <p class="text-gray-500 text-xs md:text-sm">Master Barber</p>
+                                    <p class="text-gray-900 text-sm md:text-base lg:text-lg font-semibold">Ivan Petrović</p>
+                                    <p class="text-gray-500 text-xs md:text-sm">Barber</p>
                                 </div>
                             </div>
-                            <button type="button" @click="selectedBarber = 'Ana Anić'; step = 3" class="text-orange-600">
+                            <button type="button" @click="selectedBarber = 'Ivan Petrović'; step = 3" class="text-orange-600">
                                 <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
                                 </svg>
                             </button>
                         </div>
-                        <!-- Barber Option 3 -->
                         <div class="flex items-center justify-between">
                             <div class="flex items-center">
-                                <img src={{Vite::asset('resources/images/Barber.jpg')}} alt="Barber 3" class="h-10 w-10 rounded-full">
+                                <img src={{Vite::asset('resources/images/Barber.jpg')}} alt="Barber 1" class="h-10 w-10 rounded-full">
                                 <div class="ml-3">
-                                    <p class="text-gray-900 text-sm md:text-base lg:text-lg font-semibold">Marko Marković</p>
-                                    <p class="text-gray-500 text-xs md:text-sm">Frizer</p>
+                                    <p class="text-gray-900 text-sm md:text-base lg:text-lg font-semibold">Krešimir Petrović</p>
+                                    <p class="text-gray-500 text-xs md:text-sm">Barber</p>
                                 </div>
                             </div>
-                            <button type="button" @click="selectedBarber = 'Marko Marković'; step = 3" class="text-orange-600">
+                            <button type="button" @click="selectedBarber = 'Krešimir Petrović'; step = 3" class="text-orange-600">
                                 <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
                                 </svg>
                             </button>
                         </div>
-                        <!-- Barber Option 4 -->
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center">
-                                <img src={{Vite::asset('resources/images/Barber.jpg')}} alt="Barber 4" class="h-10 w-10 rounded-full">
-                                <div class="ml-3">
-                                    <p class="text-gray-900 text-sm md:text-base lg:text-lg font-semibold">Ivana Ivić</p>
-                                    <p class="text-gray-500 text-xs md:text-sm">Junior Barber</p>
-                                </div>
-                            </div>
-                            <button type="button" @click="selectedBarber = 'Ivana Ivić'; step = 3" class="text-orange-600">
-                                <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                                </svg>
-                            </button>
-                        </div>
-                        <!-- Choose First Available Button -->
+                        <!-- Repeat for other barbers -->
                         <div class="flex justify-center mt-4">
                             <button type="button" @click="selectedBarber = 'first available'; step = 3" class="bg-orange-600 text-white py-2 px-4 rounded-md hover:bg-orange-500 text-sm md:text-base lg:text-lg">Prvi slobodan</button>
                         </div>
                         <!-- Back Button -->
                         <div class="mt-6 flex justify-between">
+                            <!-- Back button -->
                             <button type="button" @click="step = 1" class="w-full bg-orange-600 text-white py-2 rounded-md hover:bg-orange-500 text-sm md:text-base lg:text-lg">Nazad</button>
                         </div>
                     </div>
@@ -200,22 +183,37 @@
                     <form class="mt-4">
                         <div class="mb-4">
                             <label class="block text-gray-700 text-sm md:text-base lg:text-lg font-bold mb-2">Datum:</label>
-                            <input type="date" 
-                                   x-model="selectedDate" 
-                                   class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-sm md:text-base lg:text-lg focus:outline-none focus:ring-orange-500 focus:border-orange-500 text-black bg-white">
+                            <input type="date" x-model="selectedDate" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-sm md:text-base lg:text-lg focus:outline-none focus:ring-orange-500 focus:border-orange-500 text-black bg-white">
                         </div>
                         <div class="mb-4">
                             <label class="block text-gray-700 text-sm md:text-base lg:text-lg font-bold mb-2">Vrijeme:</label>
-                            <input type="time" 
-                                   x-model="selectedTime" 
-                                   class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-sm md:text-base lg:text-lg focus:outline-none focus:ring-orange-500 focus:border-orange-500 text-black bg-white">
+                            <select x-model="selectedTime" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-sm md:text-base lg:text-lg focus:outline-none focus:ring-orange-500 focus:border-orange-500 text-black bg-white">
+                                <option value="" disabled selected>Select Time</option>
+                                @php
+                                    $start = new DateTime('09:00');
+                                    $end = new DateTime('17:00');
+                                    $interval = new DateInterval('PT30M'); // 30-minute interval
+                                    $times = new DatePeriod($start, $interval, $end);
+                                @endphp
+                                
+                                @foreach ($times as $time)
+                                    @php
+                                        $formattedTime = $time->format('H:i');
+                                    @endphp
+                                    <option value="{{ $formattedTime }}" @if(in_array($formattedTime, $reservations)) disabled @endif>
+                                        {{ $formattedTime }} @if(in_array($formattedTime, $reservations)) (Booked) @endif
+                                    </option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="mt-6 flex justify-between">
                             <button type="button" @click="step = 2" class="w-full bg-orange-600 text-white py-2 rounded-md hover:bg-orange-500 text-sm md:text-base lg:text-lg">Nazad</button>
-                            <button type="button" @click="submitForm()" class="w-full bg-orange-600 text-white py-2 rounded-md hover:bg-orange-500 text-sm md:text-base lg:text-lg ml-2">Rezerviši</button>
+                            <!-- Final "Rezerviraj" button -->
+                            <button type="button" @click="submitForm()" class="w-full bg-orange-600 text-white py-2 rounded-md hover:bg-orange-500 text-sm md:text-base lg:text-lg ml-2">Rezerviraj</button>
                         </div>
                     </form>
                 </div>
+
          <!-- Form fields go here -->
          <template x-if="showSuccessMessage && successMessage">
             <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 3000)" x-show="show" x-transition.opacity.out.duration.500ms class="bg-green-100 text-green-700 p-2 rounded-md mt-4">
