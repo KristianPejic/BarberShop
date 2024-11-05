@@ -62,7 +62,7 @@
     </ul>
     
         <div class="text-right mt-4 z-20">
-            <strong class="text-black">Total: 
+            <strong class="text-black">Ukupno: 
                 <span class="cart-total">
                     {{ array_sum(array_map(function($item) {
                         return (float) $item['price']; // Ensure quantity is multiplied by the price
@@ -70,9 +70,9 @@
                 </span>
             </strong>            
         </div>
-        <a href="{{ route('user_orders') }}" class="block bg-orange-500 text-white text-center py-2 rounded mt-4">Proceed to Order</a>
+        <a href="{{ route('user_orders') }}" class="block bg-orange-500 text-white text-center py-2 rounded mt-4">Idi na narudžbu</a>
     @else
-        <p class="text-center text-gray-500">Your cart is empty</p>
+        <p class="text-center text-gray-500">Vaša košarica je prazna!</p>
     @endif
 </div>
 

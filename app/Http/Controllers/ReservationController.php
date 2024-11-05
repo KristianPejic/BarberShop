@@ -62,15 +62,15 @@ class ReservationController extends Controller
                                           ->first();
 
         if ($existingReservation) {
-            return response()->json(['message' => 'The selected time slot is already booked. Please choose another time.'], 422);
-        }
-
-        // Save the reservation
-        $validatedData['user_id'] = Auth::id(); // Set the user_id from the authenticated user
+            return response()->json(['message' => 'The selected time slot is already booked.'], 422);
+           }
+                                    
+        $validatedData['user_id'] = Auth::id();
         Reservation::create($validatedData);
-
-        return response()->json(['message' => 'Reservation successfully created!'], 201);
-    }
+                             
+          // Provjeri što se šalje
+        return response()->json(['message' => 'Rezervacija uspješno rezervirana!'], 201);
+ }
 
     // Show user-specific reservations
     public function userReservations()

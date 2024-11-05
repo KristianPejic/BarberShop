@@ -19,18 +19,21 @@
                     @admin
                         <!-- Admin All Orders Link -->
                         <x-nav-link :href="route('all_orders')" :active="request()->routeIs('all_orders')">
-                            {{ __('All Orders') }}
+                            {{ __('Sve narudžbe') }}
                         </x-nav-link>
+                         <!-- Admin Product Link -->
+                         <x-nav-link :href="route('products')" :active="request()->routeIs('products')">
+                            {{__('Produkti')}}
+                    </x-nav-link>
                     @endadmin
-
                     @auth
                         <!-- User Reservations Link -->
                         <x-nav-link :href="route('user_reservations')" :active="request()->routeIs('user_reservations')">
-                            {{ __('Reservations') }}
+                            {{ __('Rezervacije') }}
                         </x-nav-link>
                         <!-- User Orders Link -->
                         <x-nav-link :href="route('user_orders')" :active="request()->routeIs('user_orders')">
-                            {{ __('Orders') }}
+                            {{ __('Narudžbe') }}
                         </x-nav-link>
                     @endauth
                 </div>
